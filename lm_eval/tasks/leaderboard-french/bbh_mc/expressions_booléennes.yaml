@@ -1,0 +1,14 @@
+dataset_name: expressions_booléennes
+description: 'Évaluez le résultat d'une expression booléenne aléatoire.'
+doc_to_choice: ["Faux", "Vrai"]
+fewshot_config:
+  sampler: first_n
+  samples:
+  - input: pas ( ( pas pas Vrai ) ) est
+    target: 'Faux'
+  - input: Vrai et Faux et pas Vrai et Vrai est
+    target: 'Faux'
+  - input: pas pas ( pas ( Faux ) ) est
+    target: 'Vrai'
+include: _fewshot_template_yaml
+task: leaderboard_bbh_expressions_booléennes
