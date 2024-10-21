@@ -67,8 +67,8 @@ INSTRUCTION_DICT = {
     _COMBINATION + "repeat_prompt": instructions.RepeatPromptThenAnswer,
     _STARTEND + "end_checker": instructions.EndChecker,
     _CHANGE_CASES + "capital_word_frequency": instructions.CapitalWordFrequencyChecker,
-    _CHANGE_CASES + "french_capital": instructions.CapitalLettersfrenchChecker,
-    _CHANGE_CASES + "french_lowercase": instructions.LowercaseLettersfrenchChecker,
+    _CHANGE_CASES + "english_capital": instructions.CapitalLettersEnglishChecker,
+    _CHANGE_CASES + "english_lowercase": instructions.LowercaseLettersEnglishChecker,
     _PUNCTUATION + "no_comma": instructions.CommaChecker,
     _STARTEND + "quotation": instructions.QuotationChecker,
 }
@@ -87,8 +87,8 @@ INSTRUCTION_CONFLICTS = {
         _KEYWORD + "frequency",
         _KEYWORD + "forbidden_words",
         _STARTEND + "end_checker",
-        _CHANGE_CASES + "french_capital",
-        _CHANGE_CASES + "french_lowercase",
+        _CHANGE_CASES + "english_capital",
+        _CHANGE_CASES + "english_lowercase",
     },
     _LENGTH + "number_sentences": {_LENGTH + "number_sentences"},
     _LENGTH + "number_paragraphs": {
@@ -137,13 +137,13 @@ INSTRUCTION_CONFLICTS = {
     _STARTEND + "end_checker": {_STARTEND + "end_checker"},
     _CHANGE_CASES + "capital_word_frequency": {
         _CHANGE_CASES + "capital_word_frequency",
-        _CHANGE_CASES + "french_lowercase",
-        _CHANGE_CASES + "french_capital",
+        _CHANGE_CASES + "english_lowercase",
+        _CHANGE_CASES + "english_capital",
     },
-    _CHANGE_CASES + "french_capital": {_CHANGE_CASES + "french_capital"},
-    _CHANGE_CASES + "french_lowercase": {
-        _CHANGE_CASES + "french_lowercase",
-        _CHANGE_CASES + "french_capital",
+    _CHANGE_CASES + "english_capital": {_CHANGE_CASES + "english_capital"},
+    _CHANGE_CASES + "english_lowercase": {
+        _CHANGE_CASES + "english_lowercase",
+        _CHANGE_CASES + "english_capital",
     },
     _PUNCTUATION + "no_comma": {_PUNCTUATION + "no_comma"},
     _STARTEND + "quotation": {_STARTEND + "quotation", _FORMAT + "title"},

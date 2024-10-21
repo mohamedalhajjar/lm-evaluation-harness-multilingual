@@ -16,7 +16,7 @@ def doc_to_text(doc):
     Convert a doc to text.
     """
     choices = ""
-    for i, choice in enumerate(ast.literal_eval(doc["choices"])):
+    for i, choice in enumerate(doc["choices"]):
         choices += f"{i+1} - {choice}\n"
 
     text = DOC_TO_TEXT.format(

@@ -2,14 +2,15 @@ import string
 
 
 def doc_to_text(doc):
-    doc_to_text = f"{doc['question']}\n"
-
-    for i in range(len(doc["options"])):
-        doc_to_text += f"{string.ascii_uppercase[i]}. {doc['options'][i]}\n"
+    doc_to_text = f"{doc['Question']}\n"
+    options = [doc['A'],doc['B'],doc['C'],doc['A']]
+    for i in range(len(options)):
+        doc_to_text += f"{string.ascii_uppercase[i]}. {options[i]}\n"
 
     doc_to_text += "Réponse:"
     return doc_to_text
 
 
 def doc_to_choice(doc):
-    return [string.ascii_uppercase[i] for i in range(len(doc["options"]))]
+    options = [doc['A'],doc['B'],doc['C'],doc['A']]
+    return [string.ascii_uppercase[i] for i in range(len(options))]

@@ -20,7 +20,7 @@ import immutabledict
 import nltk
 
 
-def télécharger_ressources_nltk():
+def download_nltk_resources():
     """Télécharge 'punkt' si non déjà installé."""
     try:
         nltk.data.find("tokenizers/punkt")
@@ -28,9 +28,9 @@ def télécharger_ressources_nltk():
         nltk.download("punkt")
 
 
-télécharger_ressources_nltk()
+download_nltk_resources()
 
-LISTE_DE_MOTS = [
+WORD_LIST = [
     "ouest",
     "phrase",
     "signal",
@@ -1558,7 +1558,7 @@ LISTE_DE_MOTS = [
 ]  # pylint: disable=line-too-long
 
 # Codes ISO 639-1 pour les noms de langue.
-CODES_LANGUE = immutabledict.immutabledict(
+LANGUAGE_CODES = immutabledict.immutabledict(
     {
         "en": "Anglais",
         "es": "Espagnol",
@@ -1596,70 +1596,70 @@ CODES_LANGUE = immutabledict.immutabledict(
 _ALPHABETS = "([A-Za-z])"
 _PREFIXES = "(Mr|St|Mrs|Ms|Dr)[.]"
 _SUFFIXES = "(Inc|Ltd|Jr|Sr|Co)"
-_STARTERS = r"(Mr|Mrs|Ms|Dr|Prof|Capt|Cpt|Lt|Il\s|Elle\s|Ils\s|Leurs\s|Notre\s|Nous\s|Mais\s|Cependant\s|Que\s|Cela\s|Où\s)"
+_STARTERS = r"(Mr|Mrs|Ms|Dr|Prof|Capt|Cpt|Lt|He\s|She\s|It\s|They\s|Their\s|Our\s|We\s|But\s|However\s|That\s|This\s|Wherever)"
 _ACRONYMS = "([A-Z][.][A-Z][.](?:[A-Z][.])?)"
-_SITES_WEB = "[.](com|net|org|io|gov|edu|me)"
-_CHIFFRES = "([0-9])"
-_POINTS_MULTIPLES = r"\.{2,}"
+_WEBSITES = "[.](com|net|org|io|gov|edu|me)"
+_DIGITS = "([0-9])"
+_MULTIPLE_DOTS = r"\.{2,}"
 
 
-def diviser_en_phrases(texte):
-    """Diviser le texte en phrases.
+def split_into_sentences(text):
+    """Split the text into sentences.
 
     Args:
-      texte: Une chaîne qui contient une ou plusieurs phrases.
+      text: A string that consists of more than or equal to one sentences.
 
-    Renvoie :
-      Une liste de chaînes où chaque chaîne est une phrase.
+    Returns:
+      A list of strings where each string is a sentence.
     """
-    texte = " " + texte + "  "
-    texte = texte.replace("\n", " ")
-    texte = re.sub(_PREFIXES, "\\1<prd>", texte)
-    texte = re.sub(_SITES_WEB, "<prd>\\1", texte)
-    texte = re.sub(_CHIFFRES + "[.]" + _CHIFFRES, "\\1<prd>\\2", texte)
-    texte = re.sub(
-        _POINTS_MULTIPLES,
+    text = " " + text + "  "
+    text = text.replace("\n", " ")
+    text = re.sub(_PREFIXES, "\\1<prd>", text)
+    text = re.sub(_WEBSITES, "<prd>\\1", text)
+    text = re.sub(_DIGITS + "[.]" + _DIGITS, "\\1<prd>\\2", text)
+    text = re.sub(
+        _MULTIPLE_DOTS,
         lambda match: "<prd>" * len(match.group(0)) + "<stop>",
-        texte,
+        text,
     )
-    if "Ph.D" in texte:
-        texte = texte.replace("Ph.D.", "Ph<prd>D<prd>")
-    texte = re.sub(r"\s" + _ALPHABETS + "[.] ", " \\1<prd> ", texte)
-    texte = re.sub(_ACRONYMS + " " + _STARTERS, "\\1<stop> \\2", texte)
-    texte = re.sub(
+    if "Ph.D" in text:
+        text = text.replace("Ph.D.", "Ph<prd>D<prd>")
+    text = re.sub(r"\s" + _ALPHABETS + "[.] ", " \\1<prd> ", text)
+    text = re.sub(_ACRONYMS + " " + _STARTERS, "\\1<stop> \\2", text)
+    text = re.sub(
         _ALPHABETS + "[.]" + _ALPHABETS + "[.]" + _ALPHABETS + "[.]",
         "\\1<prd>\\2<prd>\\3<prd>",
-        texte,
+        text,
     )
-    texte = re.sub(_ALPHABETS + "[.]" + _ALPHABETS + "[.]", "\\1<prd>\\2<prd>", texte)
-    texte = re.sub(" " + _SUFFIXES + "[.] " + _STARTERS, " \\1<stop> \\2", texte)
-    texte = re.sub(" " + _SUFFIXES + "[.]", " \\1<prd>", texte)
-    texte = re.sub(" " + _ALPHABETS + "[.]", " \\1<prd>", texte)
-    if "”" in texte:
-        texte = texte.replace(".”", "”.")
-    if '"' in texte:
-        texte = texte.replace('."', '".')
-    if "!" in texte:
-        texte = texte.replace('!"', '"!')
-    if "?" in texte:
-        texte = texte.replace('?"', '"?')
-    texte = texte.replace(".", ".<stop>")
-    texte = texte.replace("?", "?<stop>")
-    texte = texte.replace("!", "!<stop>")
-    texte = texte.replace("<prd>", ".")
-    phrases = texte.split("<stop>")
-    phrases = [s.strip() for s in phrases]
-    if phrases and not phrases[-1]:
-        phrases = phrases[:-1]
-    return phrases
+    text = re.sub(_ALPHABETS + "[.]" + _ALPHABETS + "[.]", "\\1<prd>\\2<prd>", text)
+    text = re.sub(" " + _SUFFIXES + "[.] " + _STARTERS, " \\1<stop> \\2", text)
+    text = re.sub(" " + _SUFFIXES + "[.]", " \\1<prd>", text)
+    text = re.sub(" " + _ALPHABETS + "[.]", " \\1<prd>", text)
+    if "”" in text:
+        text = text.replace(".”", "”.")
+    if '"' in text:
+        text = text.replace('."', '".')
+    if "!" in text:
+        text = text.replace('!"', '"!')
+    if "?" in text:
+        text = text.replace('?"', '"?')
+    text = text.replace(".", ".<stop>")
+    text = text.replace("?", "?<stop>")
+    text = text.replace("!", "!<stop>")
+    text = text.replace("<prd>", ".")
+    sentences = text.split("<stop>")
+    sentences = [s.strip() for s in sentences]
+    if sentences and not sentences[-1]:
+        sentences = sentences[:-1]
+    return sentences
 
-
-def compter_mots(texte):
-    """Compter le nombre de mots."""
+def count_words(text):
+    """Counts the number of words."""
     tokenizer = nltk.tokenize.RegexpTokenizer(r"\w+")
-    tokens = tokenizer.tokenize(texte)
-    nombre_mots = len(tokens)
-    return nombre_mots
+    tokens = tokenizer.tokenize(text)
+    num_words = len(tokens)
+    return num_words
+
 
 
 @functools.lru_cache(maxsize=None)
@@ -1667,13 +1667,13 @@ def _obtenir_tokenizer_phrases():
     return nltk.data.load("nltk:tokenizers/punkt/french.pickle")
 
 
-def compter_phrases(texte):
-    """Compter le nombre de phrases."""
-    tokenizer = _obtenir_tokenizer_phrases()
-    phrases_tokenisées = tokenizer.tokenize(texte)
-    return len(phrases_tokenisées)
+def count_sentences(text):
+    """Count the number of sentences."""
+    tokenizer = _get_sentence_tokenizer()
+    tokenized_sentences = tokenizer.tokenize(text)
+    return len(tokenized_sentences)
 
 
-def générer_mots_clés(nombre_mots_clés):
-    """Génère aléatoirement quelques mots-clés."""
-    return random.sample(LISTE_DE_MOTS, k=nombre_mots_clés)
+def generate_keywords(num_keywords):
+    """Randomly generates a few keywords."""
+    return random.sample(WORD_LIST, k=num_keywords)

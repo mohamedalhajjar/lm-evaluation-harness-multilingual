@@ -1,117 +1,118 @@
 dataset_name: raisonnement_sur_les_objets_colorés
-description: 'Répondez à des questions extrêmement simples sur les couleurs des objets
-  sur une surface.
-
-        '
+description: >
+  Répondez à des questions extrêmement simples sur les couleurs des objets sur une surface.
 doc_to_choice: ["(A)", "(B)", "(C)", "(D)", "(E)", "(F)", "(G)", "(H)", "(I)", "(J)", "(K)", "(L)", "(M)", "(N)", "(O)", "(P)", "(Q)", "(R)"]
 fewshot_config:
   sampler: first_n
   samples:
-  - input: 'Sur la table de chevet, il y a un crayon rouge, une tasse violette, un porte-clés
-      bordeaux, un ours en peluche fuchsia, une assiette noire et une balle anti-stress bleue.
-      De quelle couleur est la balle anti-stress ?
+    - input: |
+        Sur la table de chevet, il y a un crayon rouge, une tasse violette, un porte-clés
+        bordeaux, un ours en peluche fuchsia, une assiette noire et une balle anti-stress bleue.
+        De quelle couleur est la balle anti-stress ?
 
-      Options :
+        Options :
 
-      (A) rouge
+        (A) rouge
 
-      (B) orange
+        (B) orange
 
-      (C) jaune
+        (C) jaune
 
-      (D) vert
+        (D) vert
 
-      (E) bleu
+        (E) bleu
 
-      (F) marron
+        (F) marron
 
-      (G) magenta
+        (G) magenta
 
-      (H) fuchsia
+        (H) fuchsia
 
-      (I) mauve
+        (I) mauve
 
-      (J) sarcelle
+        (J) sarcelle
 
-      (K) turquoise
+        (K) turquoise
 
-      (L) bordeaux
+        (L) bordeaux
 
-      (M) argent
+        (M) argent
 
-      (N) or
+        (N) or
 
-      (O) noir
+        (O) noir
 
-      (P) gris
+        (P) gris
 
-      (Q) violet
+        (Q) violet
 
-      (R) rose'
-    target: (E)
-  - input: 'Sur la table, vous voyez un ensemble d'objets disposés en ligne : un trombone
-      violet, une balle anti-stress rose, un porte-clés marron, un chargeur scrunchiephone
-      vert, un hand spinner mauve et un stylo bordeaux. Quelle est la couleur de l'objet
-      directement à droite de la balle anti-stress ?
+        (R) rose
+      target: (E)
+    - input: |
+        Sur la table, vous voyez un ensemble d'objets disposés en ligne : un trombone
+        violet, une balle anti-stress rose, un porte-clés marron, un chargeur scrunchiephone
+        vert, un hand spinner mauve et un stylo bordeaux. Quelle est la couleur de l'objet
+        directement à droite de la balle anti-stress ?
 
-      Options :
+        Options :
 
-      (A) rouge
+        (A) rouge
 
-      (B) orange
+        (B) orange
 
-      (C) jaune
+        (C) jaune
 
-      (D) vert
+        (D) vert
 
-      (E) bleu
+        (E) bleu
 
-      (F) marron
+        (F) marron
 
-      (G) magenta
+        (G) magenta
 
-      (H) fuchsia
+        (H) fuchsia
 
-      (I) mauve
+        (I) mauve
 
-      (J) sarcelle
+        (J) sarcelle
 
-      (K) turquoise
+        (K) turquoise
 
-      (L) bordeaux
+        (L) bordeaux
 
-      (M) argent
+        (M) argent
 
-      (N) or
+        (N) or
 
-      (O) noir
+        (O) noir
 
-      (P) gris
+        (P) gris
 
-      (Q) violet
+        (Q) violet
 
-      (R) rose'
-    target: (F)
-  - input: 'Sur la table de chevet, vous voyez les objets suivants disposés en ligne : une assiette
-      sarcelle, un porte-clés bordeaux, un chargeur scrunchiephone jaune, une tasse orange,
-      un carnet rose et une tasse grise. Combien d'objets non-orange voyez-vous à gauche
-      de l'objet sarcelle ?
+        (R) rose
+      target: (F)
+    - input: |
+        Sur la table de chevet, vous voyez les objets suivants disposés en ligne : une assiette
+        sarcelle, un porte-clés bordeaux, un chargeur scrunchiephone jaune, une tasse orange,
+        un carnet rose et une tasse grise. Combien d'objets non-orange voyez-vous à gauche
+        de l'objet sarcelle ?
 
-      Options :
+        Options :
 
-      (A) zéro
+        (A) zéro
 
-      (B) un
+        (B) un
 
-      (C) deux
+        (C) deux
 
-      (D) trois
+        (D) trois
 
-      (E) quatre
+        (E) quatre
 
-      (F) cinq
+        (F) cinq
 
-      (G) six'
-    target: (A)
+        (G) six
+      target: (A)
 include: _fewshot_template_yaml
 task: leaderboard_bbh_raisonnement_sur_les_objets_colorés

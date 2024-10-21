@@ -154,7 +154,7 @@ class ResponseLanguageChecker(Instruction):
         """Returns the keyward args of `build_description`."""
         return {"language": self._language}
 
-    def get_instruction_args_keys(self):
+    def get_instruction_args_keys(self,x):
         """Returns the args keys of `build_description`."""
         return ["language"]
 

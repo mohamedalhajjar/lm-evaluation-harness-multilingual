@@ -1,8 +1,8 @@
-dataset_path: le-leadboard/Math_LVL_5-fr
+dataset_path: le-leadboard/MATH_LVL5_fr
 process_docs: !function utils.process_docs
 output_type: generate_until
 training_split: train
-test_split: test
+test_split: train
 doc_to_text:  !function utils.doc_to_text
 process_results: !function utils.process_results
 doc_to_target: "{{answer if few_shot is undefined else solution}}"

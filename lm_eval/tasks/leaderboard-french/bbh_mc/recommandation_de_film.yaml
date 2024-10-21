@@ -1,54 +1,56 @@
 dataset_name: recommandation_de_film
-description: 'Recommandez des films similaires à la liste de films donnée.
-
-        '
+description: >
+  Recommandez des films similaires à la liste de films donnée.
 doc_to_choice: ["(A)", "(B)", "(C)", "(D)", "(E)", "(F)"]
 fewshot_config:
   sampler: first_n
   samples:
-  - input: 'Trouvez un film similaire à Star Wars Episode IV - Un nouvel espoir, Indiana
-      Jones et la dernière croisade, Star Wars Episode V - L'Empire contre-attaque,
-      The Big Lebowski :
+    - input: |
+        Trouvez un film similaire à Star Wars Episode IV - Un nouvel espoir, Indiana
+        Jones et la dernière croisade, Star Wars Episode V - L'Empire contre-attaque,
+        The Big Lebowski :
 
-      Options :
+        Options :
 
-      (A) Tetsuo
+        (A) Tetsuo
 
-      (B) the Ironman
+        (B) the Ironman
 
-      (C) The Princess Bride
+        (C) The Princess Bride
 
-      (D) The Barkley Marathons The Race That Eats Its Young
+        (D) The Barkley Marathons The Race That Eats Its Young
 
-      (E) Bug'
-    target: (C)
-  - input: 'Trouvez un film similaire à Twister, Le Silence des agneaux, Independence
-      Day, Braveheart :
+        (E) Bug
+      target: (C)
+    - input: |
+        Trouvez un film similaire à Twister, Le Silence des agneaux, Independence
+        Day, Braveheart :
 
-      Options :
+        Options :
 
-      (A) Ils tirent sur les chevaux
+        (A) Ils tirent sur les chevaux
 
-      (B) N'est-ce pas
+        (B) N'est-ce pas
 
-      (C) Forrest Gump
+        (C) Forrest Gump
 
-      (D) The Salton Sea
+        (D) The Salton Sea
 
-      (E) Extreme Days'
-    target: (C)
-  - input: 'Trouvez un film similaire à Minority Report, Total Recall, Vice-versa,
-      Forrest Gump :
+        (E) Extreme Days
+      target: (C)
+    - input: |
+        Trouvez un film similaire à Minority Report, Total Recall, Vice-versa,
+        Forrest Gump :
 
-      Options :
+        Options :
 
-      (A) Phénomènes
+        (A) Phénomènes
 
-      (B) Lilting
+        (B) Lilting
 
-      (C) Catwoman
+        (C) Catwoman
 
-      (D) Edge of Tomorrow'
-    target: (D)
+        (D) Edge of Tomorrow
+      target: (D)
 include: _fewshot_template_yaml
 task: leaderboard_bbh_recommandation_de_film

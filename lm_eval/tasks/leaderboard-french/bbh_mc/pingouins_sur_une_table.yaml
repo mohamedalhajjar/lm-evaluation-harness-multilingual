@@ -1,68 +1,85 @@
 dataset_name: pingouins_sur_une_table
-description: 'Répondez aux questions sur une table de pingouins et leurs attributs.
-
-        '
+description: >
+  Répondez aux questions sur une table de pingouins et leurs attributs.
 doc_to_choice: ["(A)", "(B)", "(C)", "(D)", "(E)"]
 fewshot_config:
   sampler: first_n
   samples:
-  - input: 'Voici une table où la première ligne est un en-tête et chaque ligne suivante
-      représente un pingouin : nom, âge, taille (cm), poids (kg) Louis, 7, 50, 11 Bernard,
-      5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15 Par exemple : l'âge de Louis est
-      7 ans, le poids de Gwen est de 15 kg, la taille de Bernard est de 80 cm. Nous ajoutons
-      maintenant un pingouin à la table :
+    - input: |
+        Voici une table où la première ligne est un en-tête et chaque ligne suivante
+        représente un pingouin : nom, âge, taille (cm), poids (kg)
 
-      James, 12, 90, 12
+        Louis, 7, 50, 11
+        Bernard, 5, 80, 13
+        Vincent, 9, 60, 11
+        Gwen, 8, 70, 15
 
-      Combien de pingouins ont moins de 8 ans ?
+        Par exemple : l'âge de Louis est 7 ans, le poids de Gwen est de 15 kg, la taille de Bernard est de 80 cm. 
+        Nous ajoutons maintenant un pingouin à la table :
 
-      Options :
+        James, 12, 90, 12
 
-      (A) 1
+        Combien de pingouins ont moins de 8 ans ?
 
-      (B) 2
+        Options :
 
-      (C) 3
+        (A) 1
 
-      (D) 4
+        (B) 2
 
-      (E) 5'
-    target: (B)
-  - input: 'Voici une table où la première ligne est un en-tête et chaque ligne suivante
-      représente un pingouin : nom, âge, taille (cm), poids (kg) Louis, 7, 50, 11 Bernard,
-      5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15 Par exemple : l'âge de Louis est
-      de 7 ans, le poids de Gwen est de 15 kg, la taille de Bernard est de 80 cm. Quel
-      est le pingouin le plus jeune ?
+        (C) 3
 
-      Options :
+        (D) 4
 
-      (A) Louis
+        (E) 5
+      target: (B)
+    - input: |
+        Voici une table où la première ligne est un en-tête et chaque ligne suivante
+        représente un pingouin : nom, âge, taille (cm), poids (kg)
 
-      (B) Bernard
+        Louis, 7, 50, 11
+        Bernard, 5, 80, 13
+        Vincent, 9, 60, 11
+        Gwen, 8, 70, 15
 
-      (C) Vincent
+        Par exemple : l'âge de Louis est de 7 ans, le poids de Gwen est de 15 kg, la taille de Bernard est de 80 cm. 
+        Quel est le pingouin le plus jeune ?
 
-      (D) Gwen
+        Options :
 
-      (E) James'
-    target: (B)
-  - input: 'Voici une table où la première ligne est un en-tête et chaque ligne suivante
-      représente un pingouin : nom, âge, taille (cm), poids (kg) Louis, 7, 50, 11 Bernard,
-      5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15 Par exemple : l'âge de Louis est
-      de 7 ans, le poids de Gwen est de 15 kg, la taille de Bernard est de 80 cm. Quel
-      est le nom du deuxième pingouin trié par ordre alphabétique ?
+        (A) Louis
 
-      Options :
+        (B) Bernard
 
-      (A) Louis
+        (C) Vincent
 
-      (B) Bernard
+        (D) Gwen
 
-      (C) Vincent
+        (E) James
+      target: (B)
+    - input: |
+        Voici une table où la première ligne est un en-tête et chaque ligne suivante
+        représente un pingouin : nom, âge, taille (cm), poids (kg)
 
-      (D) Gwen
+        Louis, 7, 50, 11
+        Bernard, 5, 80, 13
+        Vincent, 9, 60, 11
+        Gwen, 8, 70, 15
 
-      (E) James'
-    target: (D)
+        Par exemple : l'âge de Louis est de 7 ans, le poids de Gwen est de 15 kg, la taille de Bernard est de 80 cm. 
+        Quel est le nom du deuxième pingouin trié par ordre alphabétique ?
+
+        Options :
+
+        (A) Louis
+
+        (B) Bernard
+
+        (C) Vincent
+
+        (D) Gwen
+
+        (E) James
+      target: (D)
 include: _fewshot_template_yaml
 task: leaderboard_bbh_pingouins_sur_une_table

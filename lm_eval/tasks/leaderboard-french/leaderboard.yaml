@@ -1,4 +1,4 @@
-group: leaderboard
+group: leaderboard-fr
 task:
   - leaderboard_mmlu_fr
   - leaderboard_bbh_fr
