@@ -1,14 +1,14 @@
 dataset_name: expressions_booléennes
 description: >
   Évaluez le résultat d'une expression booléenne aléatoire.
-doc_to_choice: ["Faux", "Vrai"]
+doc_to_choice: ["Incorrect", "Vrai"]
 fewshot_config:
   sampler: first_n
   samples:
     - input: pas ( ( pas pas Vrai ) ) est
-      target: 'Faux'
+      target: 'Incorrect'
     - input: Vrai et Faux et pas Vrai et Vrai est
-      target: 'Faux'
+      target: 'Incorrect'
     - input: pas pas ( pas ( Faux ) ) est
       target: 'Vrai'
 include: _fewshot_template_yaml

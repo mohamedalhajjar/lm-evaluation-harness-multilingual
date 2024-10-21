@@ -12,10 +12,9 @@ task:
   - leaderboard_bbh_déduction_logique_trois_objets
   - leaderboard_bbh_recommandation_de_film
   - leaderboard_bbh_naviguer
-  - leaderboard_bbh_comptage_d'objets
+  - leaderboard_bbh_comptage_d_objets
   - leaderboard_bbh_pingouins_sur_une_table
   - leaderboard_bbh_raisonnement_sur_les_objets_colorés
-  - leaderboard_bbh_détection_d'erreur_de_traduction_sailante
   - leaderboard_bbh_sarcasmes
   - leaderboard_bbh_compréhension_des_sports
   - leaderboard_bbh_séquences_temporelles

@@ -1,7 +1,7 @@
 dataset_name: sophismes_formels
 description: >
   Distinguez les arguments déductivement valides des sophismes formels.
-doc_to_choice: ["valide", "invalide"]
+doc_to_choice: ["valide", "invalidee"]
 fewshot_config:
   sampler: first_n
   samples:
@@ -13,13 +13,13 @@ fewshot_config:
         s'ensuit que Lesley est arrière-grand-père de Leroy."
 
         L'argument, étant donné les prémisses explicitement énoncées, est-il déductivement
-        valide ou invalide ?
+        valide ou invalidee ?
 
         Options :
 
         - valide
 
-        - invalide
+        - invalidee
       target: valide
     - input: |
         "Il n'est pas toujours facile de voir qui est lié à qui -- et de quelle manière.
@@ -29,13 +29,13 @@ fewshot_config:
         le monde qui est un ancêtre de Dana est aussi le demi-frère de Brian."
 
         L'argument, étant donné les prémisses explicitement énoncées, est-il déductivement
-        valide ou invalide ?
+        valide ou invalidee ?
 
         Options :
 
         - valide
 
-        - invalide
+        - invalidee
       target: valide
     - input: |
         "Il n'est pas toujours facile de comprendre qui consomme quels produits.
@@ -48,13 +48,13 @@ fewshot_config:
         de savon Lush."
 
         L'argument, étant donné les prémisses explicitement énoncées, est-il déductivement
-        valide ou invalide ?
+        valide ou invalidee ?
 
         Options :
 
         - valide
 
-        - invalide
-      target: invalide
+        - invalidee
+      target: invalidee
 include: _fewshot_template_yaml
 task: leaderboard_bbh_sophismes_formels

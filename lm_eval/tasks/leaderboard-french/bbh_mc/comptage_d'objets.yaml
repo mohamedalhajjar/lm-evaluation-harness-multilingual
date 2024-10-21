@@ -1,4 +1,4 @@
-dataset_name: comptage_d'objets
+dataset_name: comptage_d_objets
 description: >
   Questions qui impliquent d'énumérer des objets et de demander au modèle de les compter.
 doc_to_choice: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"]
@@ -18,4 +18,4 @@ fewshot_config:
         deux carottes, une gousse d'ail et une patate douce. Combien de légumes ai-je ?
       target: '8'
 include: _fewshot_template_yaml
-task: leaderboard_bbh_comptage_d'objets
+task: leaderboard_bbh_comptage_d_objets
