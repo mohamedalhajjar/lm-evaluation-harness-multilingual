@@ -10,7 +10,7 @@ This lm-evaluation-harness has been adapted from the lm-evaluation-harness used 
 
 ## MultiLingual Leaderboards supported through lm-evaluation-harness-multilingual so far: 
 
-- [OpenLLMFrenchLeaderboard]([lm_eval/tasks/leaderboard-fr/README.md](https://huggingface.co/spaces/le-leadboard/OpenLLMFrenchLeaderboard))
+- [OpenLLMFrenchLeaderboard](https://huggingface.co/spaces/le-leadboard/OpenLLMFrenchLeaderboard)
 
 
 ## Original Overview
