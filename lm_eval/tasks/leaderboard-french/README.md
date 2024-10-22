@@ -1,17 +1,16 @@
 # Leaderboard evaluations
-Our goal with this group is to create an unchanging through time version of
-evaluations that will power the Open LLM Leaderboard on HuggingFace.
+Our goal with this group is to diversify the stable sets by enabling them to a new category of models Namely, Multilingual Models and in process create an unchanging through time version of evaluations that will power the Open LLM French Leaderboard on HuggingFace.
 
 As we want to evaluate models across capabilities, the list currently contains:
-- BBH (3-shots, multichoice)
-- GPQA (0-shot, multichoice)
-- mmlu-pro (5-shots, multichoice)
-- Musr (0-shot, multichoice)
-- ifeval (0-shot, generative)
-- Math-lvl-5 (4-shots, generative, minerva version)
+- BBH-fr (3-shots, multichoice)
+- GPQA-fr (0-shot, multichoice)
+- mmmlu-fr (5-shots, multichoice)
+- Musr-fr (0-shot, multichoice)
+- ifeval-fr (0-shot, generative)
+- Math-lvl-5-fr (4-shots, generative, minerva version)
 
 
-Details on the choice of those evals can be found [here](https://huggingface.co/spaces/open-llm-leaderboard/blog) !
+Details on the choice of those evals can be found [here]([https://huggingface.co/spaces/open-llm-leaderboard/blog](https://huggingface.co/le-leadboard)) !
 
 ## BigBenchHard (BBH)
 
@@ -218,36 +217,21 @@ Eprint = {arXiv:2206.14858},
 - `leaderboard_math_precalc_hard`
 
 
-## MMLU-Pro
+## MMMLU-fr
 
-### Paper
+### Model Card
 
-Title: MMLU-Pro: A More Robust and Challenging Multi-Task Language
-Understanding Benchmark
+MMMLU-fr is the french split of the dataset openai/MMMLU
 
-In the age of large-scale language models, benchmarks like the Massive
-Multitask Language Understanding (MMLU) have been pivotal in pushing the
-boundaries of what AI can achieve in language comprehension and reasoning
-across diverse domains. However, as models continue to improve, their
-performance on these benchmarks has begun to plateau, making it increasingly
-difficult to discern differences in model capabilities. This paper introduces
-MMLU-Pro, an enhanced dataset designed to extend the mostly knowledge-driven
-MMLU benchmark by integrating more challenging, reasoning-focused questions and
-expanding the choice set from four to ten options. Additionally, MMLU-Pro
-eliminates the trivial and noisy questions in MMLU. Our experimental results
-show that MMLU-Pro not only raises the challenge, causing a significant drop in
-accuracy by 16% to 33% compared to MMLU but also demonstrates greater stability
-under varying prompts. With 24 different prompt styles tested, the sensitivity
-of model scores to prompt variations decreased from 4-5% in MMLU to just 2% in
-MMLU-Pro. Additionally, we found that models utilizing Chain of Thought (CoT)
-reasoning achieved better performance on MMLU-Pro compared to direct answering,
-which is in stark contrast to the findings on the original MMLU, indicating
-that MMLU-Pro includes more complex reasoning questions. Our assessments
-confirm that MMLU-Pro is a more discriminative benchmark to better track
-progress in the field.
+Multilingual Massive Multitask Language Understanding (MMMLU)
+The MMLU is a widely recognized benchmark of general knowledge attained by AI models. It covers a broad range of topics from 57 different categories, covering elementary-level knowledge up to advanced professional subjects like law, physics, history, and computer science.
 
-- Paper: https://huggingface.co/papers/2406.01574
-- Homepage: https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro
+We translated the MMLU’s test set into 14 languages using professional human translators. Relying on human translators for this evaluation increases confidence in the accuracy of the translations, especially for low-resource languages like Yoruba. We are publishing the professional human translations and the code we use to run the evaluations.
+
+This effort reflects our commitment to improving the multilingual capabilities of AI models, ensuring they perform accurately across languages, particularly for underrepresented communities. By prioritizing high-quality translations, we aim to make AI technology more inclusive and effective for users worldwide.
+
+- Paper:  https://arxiv.org/abs/2009.03300
+- Homepage: https://github.com/openai/simple-evals
 
 ### Citation
 
@@ -266,11 +250,11 @@ progress in the field.
 
 ### Groups
 
-- `leaderboard_mmlu_pro`
+- `leaderboard_mmlu_fr`
 
 ### Tasks
 
-- `leaderboard_mmlu_pro`
+- `leaderboard_mmlu_fr`
 
 
 ## Musr
@@ -319,7 +303,7 @@ chain-of-thought to perform robust reasoning.
 
 ### Groups
 
-- `leaderboard_musr`
+- `leaderboard_musr_fr`
 
 ### Tasks
 
