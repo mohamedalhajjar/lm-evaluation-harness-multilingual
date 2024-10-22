@@ -42,37 +42,37 @@ In this work, we focus on a suite of 23 challenging BIG-Bench tasks which we cal
 
 ### Groups
 
-- `leaderboard_bbh`
+- `leaderboard_bbh_fr`
 
 ### Tasks
 
-- `leaderboard_bbh_boolean_expressions`
-- `leaderboard_bbh_causal_judgement`
-- `leaderboard_bbh_date_understanding`
-- `leaderboard_bbh_disambiguation_qa`
-- `leaderboard_bbh_dyck_languages`
-- `leaderboard_bbh_formal_fallacies`
-- `leaderboard_bbh_geometric_shapes`
-- `leaderboard_bbh_hyperbaton`
-- `leaderboard_bbh_logical_deduction_five_objects`
-- `leaderboard_bbh_logical_deduction_seven_objects`
-- `leaderboard_bbh_logical_deduction_three_objects`
-- `leaderboard_bbh_movie_recommendation`
-- `leaderboard_bbh_multistep_arithmetic_two`
-- `leaderboard_bbh_navigate`
-- `leaderboard_bbh_object_counting`
-- `leaderboard_bbh_penguins_in_a_table`
-- `leaderboard_bbh_reasoning_about_colored_objects`
-- `leaderboard_bbh_ruin_names`
-- `leaderboard_bbh_salient_translation_error_detection`
-- `leaderboard_bbh_snarks`
-- `leaderboard_bbh_sports_understanding`
-- `leaderboard_bbh_temporal_sequences`
-- `leaderboard_bbh_tracking_shuffled_objects_five_objects`
-- `leaderboard_bbh_tracking_shuffled_objects_seven_objects`
-- `leaderboard_bbh_tracking_shuffled_objects_three_objects`
-- `leaderboard_bbh_web_of_lies`
-- `leaderboard_bbh_word_sorting`
+- `leaderboard_bbh_boolean_expressions_fr`
+- `leaderboard_bbh_causal_judgement_fr`
+- `leaderboard_bbh_date_understanding_fr`
+- `leaderboard_bbh_disambiguation_qa_fr`
+- `leaderboard_bbh_dyck_languages_fr`
+- `leaderboard_bbh_formal_fallacies_fr`
+- `leaderboard_bbh_geometric_shapes_fr`
+- `leaderboard_bbh_hyperbaton_fr`
+- `leaderboard_bbh_logical_deduction_five_objects_fr`
+- `leaderboard_bbh_logical_deduction_seven_objects_fr`
+- `leaderboard_bbh_logical_deduction_three_objects_fr`
+- `leaderboard_bbh_movie_recommendation_fr`
+- `leaderboard_bbh_multistep_arithmetic_two_fr`
+- `leaderboard_bbh_navigate_fr`
+- `leaderboard_bbh_object_counting_fr`
+- `leaderboard_bbh_penguins_in_a_table_fr`
+- `leaderboard_bbh_reasoning_about_colored_objects_fr`
+- `leaderboard_bbh_ruin_names_fr`
+- `leaderboard_bbh_salient_translation_error_detection_fr`
+- `leaderboard_bbh_snarks_fr`
+- `leaderboard_bbh_sports_understanding_fr`
+- `leaderboard_bbh_temporal_sequences_fr`
+- `leaderboard_bbh_tracking_shuffled_objects_five_objects_fr`
+- `leaderboard_bbh_tracking_shuffled_objects_seven_objects_fr`
+- `leaderboard_bbh_tracking_shuffled_objects_three_objects_fr`
+- `leaderboard_bbh_web_of_lies_fr`
+- `leaderboard_bbh_word_sorting_fr`
 
 ## GPQA
 
@@ -116,13 +116,13 @@ information from AI systems that surpass human capabilities.
 
 ### Groups
 
-- `leaderboard_gpqa`
+- `leaderboard_gpqa_fr`
 
 ### Tasks
 
-- `leaderboard_gpqa_extended`
-- `leaderboard_gpqa_diamond`
-- `leaderboard_gpqa_main`
+- `leaderboard_gpqa_extended_fr`
+- `leaderboard_gpqa_diamond_fr`
+- `leaderboard_gpqa_main_fr`
 
 ## IFEval
 
@@ -159,7 +159,7 @@ two widely available LLMs on the market.
 
 ### Tasks
 
-- `leaderboard_ifeval`
+- `leaderboard_ifeval_fr`
 
 ## MATH-hard
 
@@ -204,17 +204,17 @@ Eprint = {arXiv:2206.14858},
 
 ### Groups
 
-- `leaderboard_math_hard`
+- `leaderboard_math_hard_fr`
 
 ### Tasks
 
-- `leaderboard_math_algebra_hard`
-- `leaderboard_math_counting_and_prob_hard`
-- `leaderboard_math_geometry_hard`
-- `leaderboard_math_intermediate_algebra_hard`
-- `leaderboard_math_num_theory_hard`
-- `leaderboard_math_prealgebra_hard`
-- `leaderboard_math_precalc_hard`
+- `leaderboard_math_algebra_hard_fr`
+- `leaderboard_math_counting_and_prob_hard_fr`
+- `leaderboard_math_geometry_hard_fr`
+- `leaderboard_math_intermediate_algebra_hard_fr`
+- `leaderboard_math_num_theory_hard_fr`
+- `leaderboard_math_prealgebra_hard_fr`
+- `leaderboard_math_precalc_hard_fr`
 
 
 ## MMMLU-fr
