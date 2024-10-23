@@ -186,12 +186,13 @@ def is_equiv(x1: str, x2: str) -> bool:
 
 def get_unnormalized_answer(text: str) -> str:
     INVALID_ANSWER = "[invalidanswer]"
-    end_seq = "I hope it is correct."
+    end_seq = "J'espère que c'est correct."
     text += end_seq
     match = re.search(
-        r"Final Answer: The final answer is(.*?). I hope it is correct.",
+        r"Réponse finale : La réponse finale est(.*?). J'espère que c'est correct.",
         text,
     )
+
     if match:
         return match.group(1).strip()
     else:
