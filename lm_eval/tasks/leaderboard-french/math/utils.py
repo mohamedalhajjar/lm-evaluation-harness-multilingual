@@ -20,7 +20,13 @@ please install sympy via pip install lm-eval[math] or pip install -e .[math]",
 # taken from
 # https://github.com/wellecks/lm-evaluation-harness/blob/master/lm_eval/tasks/minerva_math.py
 def doc_to_text(doc: dict) -> str:
-    return "Problème:" + "\n" + doc["problem"] + "\n\n" + "Solution:"
+    return (
+        "Problème:\n"
+        + doc["problem"]
+        + "\n\n"
+        + "Veuillez terminer votre solution en écrivant 'Réponse finale : ### [votre réponse]'.\n"
+        + "Solution:\n"
+    )
 
 
 def process_docs(dataset: datasets.Dataset) -> datasets.Dataset:
@@ -43,22 +49,22 @@ def list_fewshot_samples() -> list[dict]:
     return [
         {
             "problem": "Trouvez le domaine de l'expression $\\frac{\\sqrt{x-2}}{\\sqrt{5-x}}$.",
-            "solution": "Les expressions sous chaque racine carrée doivent être non négatives. Donc, $x - 2 \\ge 0$, donc $x \\ge 2$, et $5 - x \\ge 0$, donc $x \\le 5$. De plus, le dénominateur ne peut pas être égal à zéro, donc $5 - x > 0$, ce qui donne $x < 5$. Par conséquent, le domaine de l'expression est $\\boxed{[2,5)}$.\nRéponse finale : La réponse finale est $[2,5)$. J'espère que c'est correct.",
+            "solution": "Les expressions sous chaque racine carrée doivent être non négatives. Donc, $x - 2 \\ge 0$, donc $x \\ge 2$, et $5 - x \\ge 0$, donc $x \\le 5$. De plus, le dénominateur ne peut pas être égal à zéro, donc $5 - x > 0$, ce qui donne $x < 5$. Par conséquent, le domaine de l'expression est $\\boxed{[2,5)}$.\nRéponse finale : ### $[2,5)$",
             "few_shot": "1",
         },
         {
             "problem": "Si $\\det \\mathbf{A} = 2$ et $\\det \\mathbf{B} = 12$, alors trouvez $\\det (\\mathbf{A} \\mathbf{B})$.",
-            "solution": "Nous avons que $\\det (\\mathbf{A} \\mathbf{B}) = (\\det \\mathbf{A})(\\det \\mathbf{B}) = (2)(12) = \\boxed{24}$.\nRéponse finale : La réponse finale est $24$. J'espère que c'est correct.",
+            "solution": "Nous avons que $\\det (\\mathbf{A} \\mathbf{B}) = (\\det \\mathbf{A})(\\det \\mathbf{B}) = (2)(12) = \\boxed{24}$.\nRéponse finale : ### $24$",
             "few_shot": "1",
         },
         {
             "problem": "Terrell soulève habituellement deux haltères de 20 livres 12 fois. S'il utilise deux haltères de 15 livres à la place, combien de fois Terrell doit-il les soulever pour obtenir le même poids total ?",
-            "solution": "Si Terrell soulève deux haltères de 20 livres 12 fois, il soulève un total de $2\\cdot 12\\cdot20=480$ livres. S'il soulève à la place deux haltères de 15 livres $n$ fois, il soulèvera un total de $2\\cdot15\\cdot n=30n$ livres. En égalant cela à 480 livres, nous pouvons résoudre pour $n$ :\n\\begin{align*}\n30n&=480\\\n\\Rightarrow\\qquad n&=480/30=\\boxed{16}\n\\end{align*}\nRéponse finale : La réponse finale est $16$. J'espère que c'est correct.",
+            "solution": "Si Terrell soulève deux haltères de 20 livres 12 fois, il soulève un total de $2\\cdot 12\\cdot20=480$ livres. S'il soulève à la place deux haltères de 15 livres $n$ fois, il soulèvera un total de $2\\cdot15\\cdot n=30n$ livres. En égalant cela à 480 livres, nous pouvons résoudre pour $n$ :\n\\begin{align*}\n30n&=480\\\n\\Rightarrow\\qquad n&=480/30=\\boxed{16}\n\\end{align*}\nRéponse finale : ### $16$",
             "few_shot": "1",
         },
         {
             "problem": "Si le système d'équations\n\n\\begin{align*}\n6x - 4y &= a, \\\\\n6y - 9x &= b.\n\\end{align*}a une solution $(x, y)$ où $x$ et $y$ sont tous deux non nuls,\ntrouvez $\\frac{a}{b}$, en supposant que $b$ est non nul.",
-            "solution": "Si nous multiplions la première équation par $-\\frac{3}{2}$, nous obtenons\n\n$$6y - 9x = -\\frac{3}{2}a.$$Comme nous savons aussi que $6y - 9x = b$, nous avons\n\n$$-\\frac{3}{2}a = b \\Rightarrow \\frac{a}{b} = \\boxed{-\\frac{2}{3}}.$$\nRéponse finale : La réponse finale est $-\\frac{2}{3}$. J'espère que c'est correct.",
+            "solution": "Si nous multiplions la première équation par $-\\frac{3}{2}$, nous obtenons\n\n$$6y - 9x = -\\frac{3}{2}a.$$Comme nous savons aussi que $6y - 9x = b$, nous avons\n\n$$-\\frac{3}{2}a = b \\Rightarrow \\frac{a}{b} = \\boxed{-\\frac{2}{3}}.$$\nRéponse finale : ### $-\\frac{2}{3}$",
             "few_shot": "1",
         },
     ]
@@ -68,8 +74,7 @@ def process_results(doc: dict, results: List[str]) -> Dict[str, int]:
     candidates = results[0]
 
     unnormalized_answer = get_unnormalized_answer(candidates)
-    answer = normalize_final_answer(unnormalized_answer)
-
+    answer = normalize_final_answer(unnormalized_answer)    
     if is_equiv(answer, doc["answer"]):
         retval = 1
     else:
@@ -186,18 +191,47 @@ def is_equiv(x1: str, x2: str) -> bool:
 
 def get_unnormalized_answer(text: str) -> str:
     INVALID_ANSWER = "[invalidanswer]"
-    end_seq = "J'espère que c'est correct."
-    text += end_seq
+    # Ensure that the text ends with a newline to capture answers at the end of the string
+    text += "\n"
     match = re.search(
-        r"Réponse finale : La réponse finale est(.*?). J'espère que c'est correct.",
-        text,
+        r"Réponse finale : ###(.*?)(?:\n|$)",
+        text
     )
-
-    if match:
-        return match.group(1).strip()
+    match_v1 = re.search(
+        r"Réponse finale :###(.*?)(?:\n|$)",
+        text
+    )
+    match_v2 = re.search(
+        r"Réponse finale:###(.*?)(?:\n|$)",
+        text
+    )
+    match_v3 = re.search(
+        r"###(.*?)(?:\n|$)",
+        text
+    )
+    match_v4 = re.search(
+        r"Réponse finale: (.*?)(?:\n|$)",
+        text
+    )
+    if match or match_v1 or match_v2 or match_v3 or match_v4:
+        try:
+            return match.group(1).strip()
+        except:
+            try:
+                return match_v1.group(1).strip()
+            except:
+                try:
+                    return match_v2.group(1).strip()
+                except:
+                    try:
+                        return match_v3.group(1).strip()
+                    except:
+                        try:
+                            return match_v4.group(1).strip()
+                        except:
+                            return INVALID_ANSWER
     else:
         return INVALID_ANSWER
-
 
 SUBSTITUTIONS = [
     ("an ", ""),

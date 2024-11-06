@@ -149,7 +149,6 @@ def main(input_file: str):
     #     "Model name": model_name,
     #     # "Precision": precision,
     #     # "Revision": revision,
-    #     "Average": overall_score,
     #     "IFEval": ifeval_score,
     #     "BBH": bbh_score,
     #     "MATH-lvl5": math_score,
@@ -163,9 +162,6 @@ def main(input_file: str):
             # "model_dtype": model_dtype,
         },
         "results": {
-            "Average": {
-                "score,none": overall_score,  # todo
-            },
             "BBH-fr": {
                 "acc_norm,none": bbh_score,
             },
