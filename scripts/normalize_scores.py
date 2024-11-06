@@ -159,26 +159,26 @@ def main(input_file: str):
     results = {
         "config": {
             "model_name": model_name,
-            # "model_dtype": model_dtype,
+             "model_dtype": "torch.float16",
         },
         "results": {
             "BBH-fr": {
-                "acc_norm,none": bbh_score,
+                "metric_name": bbh_score/100,
             },
             "GPQA-fr": {
-                "acc_norm,none": gpqa_score,
+                "metric_name": gpqa_score/100,
             },
             "IFEval-fr": {
-                "strict_acc,none": ifeval_score,  # todo
+                "metric_name": ifeval_score/100, 
             },
             "MUSR-fr": {
-                "acc_norm,none": musr_score,
+                "metric_name": musr_score/100,
             },
-            "MATH-lvl5-fr": {
-                "exact_match,none": math_score,
+            "MATH Lvl5-fr": {
+                "metric_name": math_score/100,
             },
             "MMMLU-fr": {
-                "acc,none": mmlu_score,
+                "metric_name": mmlu_score/100,
             },
         },
     }

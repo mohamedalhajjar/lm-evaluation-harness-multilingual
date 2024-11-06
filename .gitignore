@@ -1,4 +1,6 @@
 env
+lm_env
+lm_env/
 *.pyc
 output/
 data/
