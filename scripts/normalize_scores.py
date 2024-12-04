@@ -68,7 +68,7 @@ def main(input_file: str):
     # 3. Normalize tasks without subtasks
     # 3.1. Normalize MMMLU-fr scores
     mmlu_raw_score = data["results"]["leaderboard_mmlu_fr"]["acc,none"]
-    mmlu_score = normalize_within_range(mmlu_raw_score, 0.1, 1.0)
+    mmlu_score = normalize_within_range(mmlu_raw_score, 0.25, 1.0)
 
     # 3.2. Normalize GPQA scores
     gpqa_scores = []
