@@ -8,7 +8,7 @@ def doc_to_choice(doc):
     return ast.literal_eval(doc["choices"])
 
 
-DOC_TO_TEXT = "{narrative}\n\n" "{question}\n\n" "{choices}\n" "Answer:"
+DOC_TO_TEXT = "{narrative}\n\n" "{question}\n\n" "{choices}\n" "Réponse :"
 
 
 def doc_to_text(doc):
