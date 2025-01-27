@@ -169,7 +169,7 @@ def main(input_file: str):
                 "metric_name": gpqa_score/100,
             },
             "IFEval-fr": {
-                "metric_name": ifeval_score/100, 
+                "metric_name": ifeval_score/100,
             },
             "MUSR-fr": {
                 "metric_name": musr_score/100,

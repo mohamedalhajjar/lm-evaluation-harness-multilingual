@@ -4,11 +4,11 @@
 
 ## Announcement
 
-This lm-evaluation-harness has been adapted from the lm-evaluation-harness used by the huggingface team for LLM Evaluations specifically in different Languages (Currently starting with French) 
+This lm-evaluation-harness has been adapted from the lm-evaluation-harness used by the huggingface team for LLM Evaluations specifically in different Languages (Currently starting with French)
 
-- **New Open LLM French Leaderboard tasks have been added ! You can find them under the [leaderboard-french](lm_eval/tasks/leaderboard-french/README.md) task group.**
+- **New Open LLM French Leaderboard tasks have been added ! You can find them under the [leaderboard_french](lm_eval/tasks/leaderboard_french/README.md) task group.**
 
-## MultiLingual Leaderboards supported through lm-evaluation-harness-multilingual so far: 
+## MultiLingual Leaderboards supported through lm-evaluation-harness-multilingual so far:
 
 - [OpenLLMFrenchLeaderboard](https://huggingface.co/spaces/le-leadboard/OpenLLMFrenchLeaderboard)
 
