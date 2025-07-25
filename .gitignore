@@ -1,16 +1,28 @@
-env
-lm_env
-lm_env/
-*.pyc
 output/
+
+# Data directories
 data/
-lm_cache
-.idea
-build
-dist
-*.egg-info
-venv
+
+# IDE configuration files
+.idea/
 .vscode/
+
+# Temporary files including logs
+temp/
+logs/
+scratch/
+cache/
+slurm_logs/
+eval_results/
+votes/
+evals/
+evaluate_modules/
+outputs/
+test_logs/
+
+
+# SH files (feel free to change the condition to less strict)
+set_hf_token.sh
 temp
 __pycache__
 .ipynb_checkpoints

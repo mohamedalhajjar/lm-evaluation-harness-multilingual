@@ -26,7 +26,7 @@ jobs:
       # and prepends the filter name to the standard output names.
       - name: Check task folders
         id: changed-tasks
-        uses: tj-actions/changed-files@v44.5.2
+        uses: tj-actions/changed-files@1c8e6069583811afb28f97afeaf8e7da80c6be5c
         with:
           # tasks checks the tasks folder and api checks the api folder for changes
           files_yaml: |
